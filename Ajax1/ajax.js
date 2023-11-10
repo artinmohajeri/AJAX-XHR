@@ -1,19 +1,24 @@
 const $ = document.querySelector.bind(document)
 let canClick = true
+
+
 $("button").addEventListener("click", function () {
 
     if (canClick) {
         // Creating the request
         const request = new XMLHttpRequest()
 
+        
         // giving the address to the server
         request.open("GET", "sample.txt", true)
 
+        
         // 
         request.onprogress = function () {
             $(".loading").classList.remove("d-none")
         }
 
+        
         // Define a callback function
         request.onreadystatechange = function () {
             if (this.status === 200 && this.readyState === 4) {
@@ -32,6 +37,7 @@ $("button").addEventListener("click", function () {
         request.send()
     }
 })
+
 
 
 /* 
